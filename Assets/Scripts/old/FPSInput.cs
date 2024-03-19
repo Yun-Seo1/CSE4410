@@ -12,12 +12,19 @@ public class FPSInput : MonoBehaviour
     public float gravity = -9.8f;
 
     private CharacterController _CharController;
-    // Start is called before the first frame update
+
+    //jumping
+    //public Rigidbody rb;
+    
+    
     void Start()
     {
         _CharController = GetComponent<CharacterController>();
+        //rb = GetComponent<Rigidbody>();
     }
 
+    
+    
     // Update is called once per frame
     void Update()
     {
@@ -28,12 +35,22 @@ public class FPSInput : MonoBehaviour
         Vector3 movement = new Vector3(deltaX, 0, deltaZ);
         movement = Vector3.ClampMagnitude(movement, speed);
 
-        movement.y = gravity;
+         movement.y = gravity;
 
         movement *= Time.deltaTime;
         movement = transform.TransformDirection(movement);
 
-        _CharController.Move(movement);
+        _CharController.Move(movement); 
 
+        //jumping
+        //transform.Translate(deltaX, 0, deltaZ);
+
+/*
+        if(Input.GetButtonDown("Jump"))
+        {
+        rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+        Debug.Log("Jump pressed");
+        }
+        */
     }
 }
