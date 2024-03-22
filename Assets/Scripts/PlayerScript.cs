@@ -11,14 +11,14 @@ public class PlayerScript : MonoBehaviour
         _health = 5;
     }
 
-       void Update()
+    void Update()
+    {
+        if(_health == 0)
         {
-            if(_health == 0)
-            {
-                SceneManager.LoadScene("SampleScene");
-                _health = 5;
-            }
+            SceneManager.LoadScene("SampleScene");
+            _health = 5;
         }
+    }
 
     // Update is called once per frame
     public void Hurt(int damage)
