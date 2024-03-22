@@ -11,12 +11,11 @@ public class BulletProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //bullet = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
     {
-        //bullet.velocity = transform.forward * speed;
         transform.Translate(0, 0, speed * Time.deltaTime);
     }
 
