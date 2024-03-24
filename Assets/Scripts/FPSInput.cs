@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 [AddComponentMenu("Control Script/FPS Input")]
@@ -37,3 +38,23 @@ public class FPSInput : MonoBehaviour
 
     }
 }
+
+
+/*
+private PlayerInputActions _PlayerInputActions;
+    private void Awake()
+    {
+        _PlayerInputActions = new PlayerInputActions();
+        _PlayerInputActions.Player.Enable();
+    }
+
+
+    public Vector2 GetMovementVectorNormalized()
+    {
+        Vector2 InputVector = _PlayerInputActions.Player.Move.ReadValue<Vector2>();
+
+        InputVector.Normalize();
+        return InputVector;
+    }
+
+*/
