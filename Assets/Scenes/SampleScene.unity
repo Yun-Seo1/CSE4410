@@ -519,7 +519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfBulletProjectile: {fileID: 6666068769597833678, guid: 23ef9d5e7632d374f8ac67789416d8ce, type: 3}
   pfBall: {fileID: 1661687244992874033, guid: 488ebd5ee56d5394485570318c444d64, type: 3}
-  bulletSpawner: {fileID: 1759853295}
+  projectileSpawner1: {fileID: 1759853295}
+  projectileSpawner2: {fileID: 769120665}
   Gun1: {fileID: 725317655}
   Gun2: {fileID: 349144470}
 --- !u!1 &349144470
@@ -555,6 +556,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 760704234}
+  - {fileID: 769120665}
   m_Father: {fileID: 604787629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &349144472
@@ -960,13 +962,12 @@ Transform:
   m_GameObject: {fileID: 604787628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.08715578, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0.533, y: 0, z: -0.049}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 725317656}
   - {fileID: 349144471}
-  - {fileID: 1759853295}
   m_Father: {fileID: 1735814131}
   m_LocalEulerAnglesHint: {x: 0, y: -10, z: 0}
 --- !u!114 &604787630
@@ -1232,6 +1233,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1112619662}
+  - {fileID: 1759853295}
   m_Father: {fileID: 604787629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &725317658
@@ -1414,6 +1416,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760704233}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &769120664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769120665}
+  m_Layer: 0
+  m_Name: ProjectileSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769120665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769120664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13, y: -0.4, z: 9.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 349144471}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938487018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,7 +3079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1759853295}
   m_Layer: 0
-  m_Name: BulletSpawner
+  m_Name: ProjectileSpawner1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3060,12 +3093,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759853294}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.07, z: 1.804}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.039996617, y: 0.5937488, z: 4.3159957}
+  m_LocalScale: {x: 20, y: 12.499994, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 604787629}
+  m_Father: {fileID: 725317656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779982717
 GameObject:
