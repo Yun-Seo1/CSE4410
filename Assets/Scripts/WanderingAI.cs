@@ -10,19 +10,37 @@ public class WanderingAI : MonoBehaviour
     public float obstacleRange = 5.0f;
     private bool _IsAlive;
 
+    private int _health;
+
     // Start is called before the first frame update
     void Start()
     {
         _IsAlive = true;
+        _health = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_IsAlive)
+        ReactiveTarget target = GetComponent<ReactiveTarget>();
+
+        if (_health > 0)
         {
             transform.Translate(0, 0, speed * Time.deltaTime);
         }
+        else if (_health == 0)
+        {
+            target.ReactToHit();
+        }
+        else
+        {
+            _health = 0;
+        }
+
+       /* if (_IsAlive)
+        {
+            transform.Translate(0, 0, speed * Time.deltaTime);
+        }*/
 
         Ray ray = new Ray(transform.position, transform.forward);
 
@@ -48,6 +66,12 @@ public class WanderingAI : MonoBehaviour
                 transform.Rotate(0, angle, 0);
             }
         }
+    }
+
+    public void Hurt(int damage)
+    {
+        _health -= damage;
+        Debug.Log($"Enemy Health: {_health}");
     }
 
     public void SetAlive(bool alive)

@@ -19,6 +19,7 @@ public class MouseLook : MonoBehaviour
     public float maximumVert = 45f;
 
     private float verticalRot = 0;
+    private bool allowMouseControl = true; // flags to control mouse input
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,9 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!allowMouseControl){
+            return;
+        }
         if (axes == RotationAxes.MouseX)
         {
             //Horizonal rotation here
@@ -62,4 +66,10 @@ public class MouseLook : MonoBehaviour
             transform.localEulerAngles = new Vector3(verticalRot, horizonalRot, 0);
         }
     }
+        //enable or disable mouse
+        public void SetMouseControl(bool enable)
+        {
+            allowMouseControl = enable;
+        }
+    
 }
