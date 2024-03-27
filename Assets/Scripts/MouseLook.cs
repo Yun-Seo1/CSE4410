@@ -19,8 +19,7 @@ public class MouseLook : MonoBehaviour
     public float maximumVert = 45f;
 
     private float verticalRot = 0;
-
-    [SerializeField] Transform playerbody;
+    private bool allowMouseControl = true; // flags to control mouse input
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +34,9 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!allowMouseControl){
+            return;
+        }
         if (axes == RotationAxes.MouseX)
         {
             //Horizonal rotation here
@@ -50,7 +52,6 @@ public class MouseLook : MonoBehaviour
             float horizonalRot = transform.localEulerAngles.y;
 
             transform.localEulerAngles = new Vector3(verticalRot, horizonalRot, 0);
-            
         }
 
         else
@@ -65,34 +66,10 @@ public class MouseLook : MonoBehaviour
             transform.localEulerAngles = new Vector3(verticalRot, horizonalRot, 0);
         }
     }
-}
-/*
-
-[SerializeField] private float _MinViewDistance = 45f;
-    [SerializeField] Transform Playerbody;
-
-    [SerializeField] private float _MouseSensitity = 100f;
-
-    float xRotation = 0f;
-
-    private void Start()
-    {
-        Rigidbody body = GetComponent<Rigidbody>();
-        if (body != null)
+        //enable or disable mouse
+        public void SetMouseControl(bool enable)
         {
-            body.freezeRotation = true;
+            allowMouseControl = enable;
         }
-        //Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    private void Update()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * _MouseSensitity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * _MouseSensitity * Time.deltaTime;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, _MinViewDistance);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        Playerbody.Rotate(Vector3.up * mouseX);
-    }
-*/
+    
+}
